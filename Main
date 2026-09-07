@@ -1,1 +1,49 @@
+package tienda_de_musica;
 
+public class Tienda_de_musica {
+
+    public static void main(String[] args) {
+        Administrador administrador = new Administrador("Oscar");
+        Cliente cliente = new Cliente("Andres");
+        Producto guitarra = new Producto("P001", "Guitarra", 800000, 10);
+        Producto cuerda = new Producto("P002", "Cuerdas", 50000, 20);
+
+        System.out.println("PRODUCTOS");
+
+        System.out.println(guitarra.getNombre() + " - $" + guitarra.getPrecio() + " - Cantidad: " + guitarra.getCantidadDisponible());
+
+        System.out.println( cuerda.getNombre() + " - $" + cuerda.getPrecio() + " - Cantidad: " + cuerda.getCantidadDisponible());
+
+        administrador.modificarPrecio(guitarra,850000);
+
+        System.out.println("\nNuevo precio guitarra: $" + guitarra.getPrecio());
+
+        cliente.realizarCompra();
+
+        Venta venta = cliente.getVenta();
+
+        venta.agregarProducto(guitarra, 1);
+
+        venta.agregarProducto(cuerda, 2);
+
+        System.out.println("\nDETALLES DE LA VENTA");
+
+        venta.mostrarDetalles();
+
+        System.out.println("INVENTARIO DESPUES DE LA VENTA");
+
+        System.out.println(guitarra.getNombre() + ": " + guitarra.getCantidadDisponible());
+
+        System.out.println(cuerda.getNombre() + ": " + cuerda.getCantidadDisponible());
+
+        cliente.eliminarVenta();
+
+        System.out.println("\nVenta eliminada.");
+
+        System.out.println("Cliente sigue existiendo: " + cliente.getNombre());
+
+        System.out.println("Producto sigue existiendo: " + guitarra.getNombre());
+
+        System.out.println("Otro producto sigue existiendo: " + cuerda.getNombre());
+    } 
+    }
