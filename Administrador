@@ -1,1 +1,21 @@
+package tienda_de_musica;
 
+public class Administrador {
+    private String nombre;
+
+    public Administrador(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void modificarPrecio(Producto producto, double nuevoPrecio) {
+        producto.modificarPrecio(nuevoPrecio);
+    }
+
+    public void modificarInventario(Producto producto, int nuevaCantidad) {
+        producto.modificarInventario(nuevaCantidad);
+    }
+}
