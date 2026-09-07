@@ -1,1 +1,26 @@
+package tienda_de_musica;
 
+public class Cliente {
+    private String nombre;
+    private Venta venta;
+
+    public Cliente(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public Venta getVenta() {
+        return venta;
+    }
+
+    public void realizarCompra() {
+        venta = new Venta(this);
+    }
+
+    public void eliminarVenta() {
+        venta = null;
+    }
+}
